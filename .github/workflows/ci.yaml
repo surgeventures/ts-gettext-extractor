@@ -75,25 +75,25 @@ jobs:
             sudo apt-get install -y --no-install-recommends \
               --allow-unauthenticated musl-tools
           fi
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
         with:
           shared-key: ${{ matrix.build.TARGET }}-build
       - name: Install Rust toolchain
-        uses: actions-rs/toolchain@v1
+        uses: actions-rs/toolchain@16499b5e05bf2e26879000db0c1d13f7e13fa3af # v1
         with:
           toolchain: stable
           target: ${{ matrix.build.TARGET }}
           override: true
       - name: Build (linux/macos)
         if: matrix.build.OS != 'windows-2022'
-        uses: actions-rs/cargo@v1
+        uses: actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1
         with:
           use-cross: true
           command: build
           args: --release --locked --target ${{ matrix.build.TARGET }}
       - name: Build (windows)
         if: matrix.build.OS == 'windows-2022'
-        uses: actions-rs/cargo@v1
+        uses: actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1
         with:
           command: build
           args: --release --locked --target ${{ matrix.build.TARGET }} # --no-default-features
@@ -102,6 +102,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
       - run: cargo clippy --all-targets --all-features
       - run: cargo test
