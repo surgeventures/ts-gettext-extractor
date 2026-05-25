@@ -1,0 +1,71 @@
+version: 1
+generated_at: 2026-05-25T13:28:29Z
+internal: []
+trusted:
+  - action: actions/checkout
+    refs:
+      - v3
+      - v4
+    occurrences:
+      v4:
+        .github/workflows/cd.yaml:
+          - jobs.publish-binary.steps.[0].uses
+          - jobs.publish-main-package.steps.[0].uses
+        .github/workflows/ci.yaml:
+          - jobs.build.steps.[0].uses
+      v3:
+        .github/workflows/cd.yaml:
+          - jobs.publish-crate.steps.[0].uses
+        .github/workflows/ci.yaml:
+          - jobs.checks.steps.[0].uses
+  - action: actions/setup-node
+    refs:
+      - v4
+    occurrences:
+      v4:
+        .github/workflows/cd.yaml:
+          - jobs.publish-binary.steps.[12].uses
+          - jobs.publish-main-package.steps.[2].uses
+external:
+  - action: actions-rs/cargo
+    refs:
+      - v1
+    occurrences:
+      v1:
+        .github/workflows/cd.yaml:
+          - jobs.publish-binary.steps.[5].uses
+          - jobs.publish-binary.steps.[6].uses
+        .github/workflows/ci.yaml:
+          - jobs.build.steps.[4].uses
+          - jobs.build.steps.[5].uses
+  - action: actions-rs/toolchain
+    refs:
+      - v1
+    occurrences:
+      v1:
+        .github/workflows/cd.yaml:
+          - jobs.publish-binary.steps.[4].uses
+        .github/workflows/ci.yaml:
+          - jobs.build.steps.[3].uses
+  - action: svenstaro/upload-release-action
+    refs:
+      - v2
+    occurrences:
+      v2:
+        .github/workflows/cd.yaml:
+          - jobs.publish-binary.steps.[9].uses
+          - jobs.publish-binary.steps.[10].uses
+  - action: Swatinem/rust-cache
+    refs:
+      - v2
+    occurrences:
+      v2:
+        .github/workflows/cd.yaml:
+          - jobs.publish-binary.steps.[3].uses
+          - jobs.publish-crate.steps.[1].uses
+        .github/workflows/ci.yaml:
+          - jobs.build.steps.[2].uses
+          - jobs.checks.steps.[1].uses
+local: []
+docker: []
+dynamic: []
