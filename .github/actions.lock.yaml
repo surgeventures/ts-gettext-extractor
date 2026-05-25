@@ -1,5 +1,5 @@
 version: 1
-generated_at: 2026-05-25T13:28:29Z
+generated_at: 2026-05-25T15:59:26Z
 internal: []
 trusted:
   - action: actions/checkout
@@ -29,9 +29,9 @@ trusted:
 external:
   - action: actions-rs/cargo
     refs:
-      - v1
+      - 844f36862e911db73fe0815f00a4a2602c279505
     occurrences:
-      v1:
+      844f36862e911db73fe0815f00a4a2602c279505:
         .github/workflows/cd.yaml:
           - jobs.publish-binary.steps.[5].uses
           - jobs.publish-binary.steps.[6].uses
@@ -40,26 +40,26 @@ external:
           - jobs.build.steps.[5].uses
   - action: actions-rs/toolchain
     refs:
-      - v1
+      - 16499b5e05bf2e26879000db0c1d13f7e13fa3af
     occurrences:
-      v1:
+      16499b5e05bf2e26879000db0c1d13f7e13fa3af:
         .github/workflows/cd.yaml:
           - jobs.publish-binary.steps.[4].uses
         .github/workflows/ci.yaml:
           - jobs.build.steps.[3].uses
   - action: svenstaro/upload-release-action
     refs:
-      - v2
+      - 29e53e917877a24fad85510ded594ab3c9ca12de
     occurrences:
-      v2:
+      29e53e917877a24fad85510ded594ab3c9ca12de:
         .github/workflows/cd.yaml:
           - jobs.publish-binary.steps.[9].uses
           - jobs.publish-binary.steps.[10].uses
   - action: Swatinem/rust-cache
     refs:
-      - v2
+      - e18b497796c12c097a38f9edb9d0641fb99eee32
     occurrences:
-      v2:
+      e18b497796c12c097a38f9edb9d0641fb99eee32:
         .github/workflows/cd.yaml:
           - jobs.publish-binary.steps.[3].uses
           - jobs.publish-crate.steps.[1].uses
